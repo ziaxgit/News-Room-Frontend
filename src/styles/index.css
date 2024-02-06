@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background-image: url("../nesnoiw31.jpg");
+  background-size: contain;
+  backdrop-filter: blur(1.5px);
+}

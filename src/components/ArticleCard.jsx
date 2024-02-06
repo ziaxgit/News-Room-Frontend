@@ -5,10 +5,12 @@ export default function ArticleCard({ article }) {
 
   return (
     <div className="article-card">
-      <h3>{article.title}</h3>
       <img src={article.article_img_url} alt={article.title} />
-      <p>posted on {formattedDate}</p>
-      <p>by {article.author}</p>
+      <h3>{article.title}</h3>
+      <div className="author-date">
+        <p>by {article.author}</p>
+        <p> {formattedDate}</p>
+      </div>
       <div className="votes-comment-count">
         <p>{article.votes} votes</p>
         <p>{article.comment_count} comments</p>
