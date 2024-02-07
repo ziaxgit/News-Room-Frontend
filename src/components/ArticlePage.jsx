@@ -20,6 +20,7 @@ export default function ArticlePage() {
       .then((data) => {
         setArticle({ ...data.article });
         setIsArticleLoading(false);
+        window.scrollTo(0, 0);
       })
       .catch((err) => {
         setErrorInfo({ ...err.response });
@@ -47,7 +48,7 @@ export default function ArticlePage() {
   return (
     <main className="article-and-comment-container">
       <section className="article-container">
-        <h3>{article.title}</h3>
+        <h2>{article.title}</h2>
         <div className="author-date">
           <p>by {article.author}</p>
           <p> {formattedDate}</p>
