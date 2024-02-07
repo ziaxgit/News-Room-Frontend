@@ -23,7 +23,7 @@
 
 .article-card:hover {
   transform: scale(1.05);
-  border: 1px solid rgb(0, 0, 0);
+  border: 3px solid rgba(227, 117, 20, 0.896);
 }
 
 @media (max-width: 900px) {
