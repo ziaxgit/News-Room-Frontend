@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 export default function ArticleCard({ article }) {
   const date = new Date(article.created_at);
-  const options = { day: "numeric", month: "long", year: "numeric" };
+  const options = { day: "numeric", month: "numeric", year: "numeric" };
   const formattedDate = date.toLocaleDateString("en-GB", options);
   const navigate = useNavigate();
 
