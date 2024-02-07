@@ -6,6 +6,8 @@ import CommentCard from "./CommentCard";
 import "../styles/ArticlePage.css";
 import LoadingScreeen from "./LoadingScreen";
 import DisplayError from "./DisplayError";
+import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
+import patchArticleVote from "../../utils/patchArticleVote";
 
 export default function ArticlePage() {
   const { article_id } = useParams();
@@ -14,6 +16,12 @@ export default function ArticlePage() {
   const [isArticleLoading, setIsArticleLoading] = useState(true);
   const [error, setError] = useState(false);
   const [errorInfo, setErrorInfo] = useState({});
+  const [likeClick, setLikeClick] = useState(false);
+  const [dislikeClick, setDislikeClick] = useState(false);
+  const [originalVotes, setOriginalVotes] = useState(null);
+  const [tempVotes, setTempVotes] = useState(null);
+  const [changeVotesBy, setChangeVotesBy] = useState(0);
+  const [errorVoteUpdate, setErrorVoteUpdate] = useState(false);
 
   useEffect(() => {
     fetchArticles(article_id)
@@ -21,6 +29,8 @@ export default function ArticlePage() {
         setArticle({ ...data.article });
         setIsArticleLoading(false);
         window.scrollTo(0, 0);
+        setOriginalVotes(data.article.votes);
+        setTempVotes(data.article.votes);
       })
       .catch((err) => {
         setErrorInfo({ ...err.response });
@@ -32,6 +42,30 @@ export default function ArticlePage() {
       setComments([...data.comments]);
     });
   }, [article_id]);
+
+  function incrementVote() {
+    if (!likeClick || tempVotes === originalVotes) {
+      setChangeVotesBy(1);
+      setTempVotes(tempVotes + 1);
+      setLikeClick(true);
+      setDislikeClick(false);
+    }
+  }
+  function decrementVote() {
+    if (!dislikeClick || tempVotes === originalVotes) {
+      setChangeVotesBy(-1);
+      setTempVotes(tempVotes - 1);
+      setLikeClick(false);
+      setDislikeClick(true);
+    }
+  }
+  useEffect(() => {
+    patchArticleVote({ article_id, changeVotesBy })
+      .then()
+      .catch((err) => {
+        setErrorVoteUpdate(true);
+      });
+  }, [tempVotes]);
 
   const date = new Date(article.created_at);
   const options = { day: "numeric", month: "long", year: "numeric" };
@@ -56,8 +90,31 @@ export default function ArticlePage() {
         <img src={article.article_img_url} alt={article.title} />
         <p className="article-body">{article.body}</p>
         <div className="votes-comment-count">
-          <p>{article.votes} likes</p>
+          <p>{tempVotes} likes</p>
           <p>{article.comment_count} comments</p>
+        </div>
+        <div className="like-buttons">
+          <button
+            onClick={incrementVote}
+            id={likeClick && tempVotes !== originalVotes ? "btn-clicked" : null}
+          >
+            <AiOutlineLike size={25} />
+          </button>
+          <button
+            onClick={decrementVote}
+            id={
+              dislikeClick && tempVotes !== originalVotes ? "btn-clicked" : null
+            }
+          >
+            <AiOutlineDislike size={25} />
+          </button>
+          {likeClick && tempVotes !== originalVotes ? (
+            <p>You liked this!</p>
+          ) : null}
+          {dislikeClick && tempVotes !== originalVotes ? (
+            <p>You disliked this!</p>
+          ) : null}
+          {errorVoteUpdate ? <p>Failed to like. Api error soz x_x</p> : null}
         </div>
       </section>
 
