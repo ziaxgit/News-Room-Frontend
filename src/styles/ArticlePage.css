@@ -1,0 +1,27 @@
+.article-and-comment-container {
+  display: flex;
+  justify-content: center;
+}
+
+.article-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-right: 4%;
+  margin-left: 4%;
+  padding: 20px;
+}
+
+.article-container img {
+  width: 90%;
+  margin: 0 0 0.5rem 0;
+}
+
+.author-date {
+  margin: 0.5rem 0 0.5rem 0;
+}
+
+.votes-comment-count {
+  margin: 0.5rem 0 0.5rem 0;
+  font-weight: 600;
+}

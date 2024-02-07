@@ -21,19 +21,19 @@ export default function Navbar() {
       <ul className={menuOpen ? `open` : ""}>
         <li></li>
         <li>
-          <NavLink onClick={toggleNavbar} to="/">
+          <Link onClick={toggleNavbar} to="/">
             Home
-          </NavLink>
+          </Link>
         </li>
         <li>
-          <NavLink onClick={toggleNavbar} to="/users">
+          <Link onClick={toggleNavbar} to="/users">
             Users
-          </NavLink>
+          </Link>
         </li>
         <li>
-          <NavLink onClick={toggleNavbar} to="/login">
+          <Link onClick={toggleNavbar} to="/login">
             Log In
-          </NavLink>
+          </Link>
         </li>
       </ul>
     </nav>
