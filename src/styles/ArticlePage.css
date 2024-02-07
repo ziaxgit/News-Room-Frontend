@@ -90,3 +90,25 @@
   margin-top: 0.5rem;
   cursor: pointer;
 }
+
+.like-buttons button {
+  padding: 5px 5px 0;
+  cursor: pointer;
+  border: 0;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 10px;
+}
+
+.like-buttons button:hover {
+  background-color: rgb(255, 98, 0);
+  transform: scale(1.2);
+}
+
+.like-buttons p {
+  margin-top: 7px;
+  margin-bottom: -10px;
+}
+
+#btn-clicked {
+  background-color: rgb(255, 98, 0);
+}

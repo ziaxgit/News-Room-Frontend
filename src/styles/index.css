@@ -9,5 +9,5 @@
 body {
   background-image: url("../nesnoiw31.jpg");
   background-size: contain;
-  backdrop-filter: blur(2.5px);
+  backdrop-filter: blur(2px);
 }
