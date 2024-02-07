@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import fetchArticles from "../../utils/fetchArticles";
 import ArticleCard from "./ArticleCard";
 import LoadingScreen from "./LoadingScreen";
+import "../styles/ArticlesList.css";
 
 export default function ArticlesList() {
   const [articles, setArticles] = useState([]);

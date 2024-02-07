@@ -1,12 +1,16 @@
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import ArticlesList from "./components/ArticlesList";
-import "./styles/Homepage.css";
+import ArticlePage from "./components/ArticlePage";
 
 export default function App() {
   return (
-    <div className="App">
-      <Navbar></Navbar>
-      <ArticlesList />
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<ArticlesList />} />
+        <Route path="/articles/:article_id" element={<ArticlePage />} />
+      </Routes>
+    </>
   );
 }
