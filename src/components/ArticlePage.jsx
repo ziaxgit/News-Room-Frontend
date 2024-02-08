@@ -1,18 +1,17 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+
 import fetchArticles from "../../utils/fetchArticles";
-import fetchComments from "../../utils/fetchComments";
-import CommentCard from "./CommentCard";
 import "../styles/ArticlePage.css";
 import LoadingScreeen from "./LoadingScreen";
 import DisplayError from "./DisplayError";
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 import patchArticleVote from "../../utils/patchArticleVote";
+import CommentsList from "./CommentsList";
 
 export default function ArticlePage() {
   const { article_id } = useParams();
   const [article, setArticle] = useState({});
-  const [comments, setComments] = useState([]);
   const [isArticleLoading, setIsArticleLoading] = useState(true);
   const [error, setError] = useState(false);
   const [errorInfo, setErrorInfo] = useState({});
@@ -37,10 +36,6 @@ export default function ArticlePage() {
         setIsArticleLoading(false);
         setError(true);
       });
-
-    fetchComments(article_id).then((data) => {
-      setComments([...data.comments]);
-    });
   }, [article_id]);
 
   function incrementVote() {
@@ -117,13 +112,7 @@ export default function ArticlePage() {
           {errorVoteUpdate ? <p>Failed to like. Api error soz x_x</p> : null}
         </div>
       </section>
-
-      <section className="comments-container">
-        <h3 className="comment-heading">Comments</h3>
-        {comments.map((comment) => {
-          return <CommentCard comment={comment} />;
-        })}
-      </section>
+      <CommentsList article_id={article_id} />
     </main>
   );
 }
