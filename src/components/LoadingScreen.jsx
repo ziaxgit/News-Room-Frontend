@@ -12,7 +12,7 @@ export default function LoadingScreen() {
         wrapperClass=""
         colors={["#575757", "#949494"]}
       />
-      <p>Fetching data from API please wait...</p>
+      <p>Fetching data please wait...</p>
     </div>
   );
 }

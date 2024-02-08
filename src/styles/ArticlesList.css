@@ -22,7 +22,7 @@
 }
 
 .article-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
   border: 3px solid rgba(227, 117, 20, 0.896);
 }
 

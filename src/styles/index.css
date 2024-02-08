@@ -8,6 +8,10 @@
 
 body {
   background-image: url("../nesnoiw31.jpg");
-  background-size: contain;
-  backdrop-filter: blur(2px);
+  /* background-size: contain; */
+  /* backdrop-filter: blur(1px); */
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }

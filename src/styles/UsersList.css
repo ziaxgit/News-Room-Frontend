@@ -1,0 +1,74 @@
+.userlist-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.users-header {
+  text-align: center;
+}
+.user-card {
+  width: 150px;
+  height: 220px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  padding: 10px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.881);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.user-card:hover {
+  transform: scale(1.05);
+  border: 3px solid rgba(227, 117, 20, 0.896);
+}
+
+.user-card img {
+  width: 100%;
+  height: 70%;
+  object-fit: contain;
+}
+
+@media (max-width: 400px) {
+  .user-card {
+    width: 45%;
+    height: 220px;
+  }
+}
+
+.logged-user {
+  border: 2px solid rgb(255, 106, 0);
+}
+
+.logged-user span {
+  border: 1px solid;
+  padding: 2px;
+  border-radius: 5px;
+  margin-top: 5px;
+  background-color: rgba(255, 106, 0, 0.4);
+}
+
+.img-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.img-user p {
+  font-size: 0.7em;
+}
+.user-profile-pic {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 50%;
+}

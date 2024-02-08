@@ -17,9 +17,9 @@ export default function ArticlePage() {
   const [errorInfo, setErrorInfo] = useState({});
   const [likeClick, setLikeClick] = useState(false);
   const [dislikeClick, setDislikeClick] = useState(false);
-  const [originalVotes, setOriginalVotes] = useState(null);
-  const [tempVotes, setTempVotes] = useState(null);
-  const [changeVotesBy, setChangeVotesBy] = useState(0);
+  const [originalVotes, setOriginalVotes] = useState(null); // retain original votes from api
+  const [tempVotes, setTempVotes] = useState(null); // for optimistic rendering
+  const [changeVotesBy, setChangeVotesBy] = useState(0); // value to send api
   const [errorVoteUpdate, setErrorVoteUpdate] = useState(false);
 
   useEffect(() => {
@@ -45,6 +45,11 @@ export default function ArticlePage() {
       setLikeClick(true);
       setDislikeClick(false);
     }
+    patchArticleVote(article_id, 1)
+      .then()
+      .catch(() => {
+        setErrorVoteUpdate(true);
+      });
   }
   function decrementVote() {
     if (!dislikeClick || tempVotes === originalVotes) {
@@ -53,14 +58,12 @@ export default function ArticlePage() {
       setLikeClick(false);
       setDislikeClick(true);
     }
-  }
-  useEffect(() => {
-    patchArticleVote({ article_id, changeVotesBy })
+    patchArticleVote(article_id, -1)
       .then()
-      .catch((err) => {
+      .catch(() => {
         setErrorVoteUpdate(true);
       });
-  }, [tempVotes]);
+  }
 
   const date = new Date(article.created_at);
   const options = { day: "numeric", month: "long", year: "numeric" };

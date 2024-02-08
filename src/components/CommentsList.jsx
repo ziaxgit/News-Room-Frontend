@@ -1,13 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import fetchComments from "../../utils/fetchComments";
 import CommentCard from "./CommentCard";
 import postArticleComment from "../../utils/postArticleComment";
 import "../styles/comments.css";
+import UserContext from "../UserContext";
 
 export default function CommentsList({ article_id }) {
   const [comments, setComments] = useState([]);
   const [commentText, setCommentText] = useState("");
   const [commentPosted, setCommentPosted] = useState(null);
+  const { loggedUser } = useContext(UserContext);
+  const [commentError, setCommentError] = useState(null);
 
   useEffect(() => {
     fetchComments(article_id).then((data) => {
@@ -16,18 +19,16 @@ export default function CommentsList({ article_id }) {
   }, [comments]);
 
   function handleCommentSubmit(e) {
-    if (commentText) {
+    if (commentText && /^\s*$/.test(commentText) === false) {
       e.preventDefault();
       postArticleComment(
-        { username: "happyamy2016", body: commentText },
+        { username: loggedUser, body: commentText },
         article_id
       )
         .then(() => setCommentPosted(true))
         .catch(() => {
           setCommentPosted(false);
         });
-    } else {
-      setIsEmptyComment(true);
     }
     setCommentText("");
   }

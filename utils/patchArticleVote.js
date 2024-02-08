@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default function patchArticleVote({ article_id, changeVotesBy }) {
+export default function patchArticleVote(article_id, changeVotesBy) {
   const dataToSend = { inc_votes: changeVotesBy };
   return axios
     .patch(
