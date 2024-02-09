@@ -1,9 +1,10 @@
 import { useState } from "react";
 import deleteComment from "../../utils/deleteComment";
 import DisplayError from "./DisplayError";
-export default function CommentCard({ comment, loggedUser, setComments }) {
+export default function CommentCard({ comment, loggedUser }) {
   const originalDate = new Date(comment.created_at);
   const [error, setError] = useState(false);
+  const [commentDelete, setCommentDelete] = useState(false);
 
   const options = {
     year: "numeric",
@@ -19,7 +20,7 @@ export default function CommentCard({ comment, loggedUser, setComments }) {
 
   function handleDeleteComment(comment_id) {
     deleteComment(comment_id)
-      .then()
+      .then(() => setCommentDelete(true))
       .catch((err) => {
         setError(true);
       });
@@ -30,6 +31,9 @@ export default function CommentCard({ comment, loggedUser, setComments }) {
   }
   return (
     <>
+      {commentDelete && (
+        <p className="comment-card">Comment deleted successfully</p>
+      )}
       <div className="comment-card">
         <div>
           <p className="comment-author">
