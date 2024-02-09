@@ -7,9 +7,9 @@ export default function DisplayError({ error }) {
       <h1>ERROR</h1>
       <br />
       <h1>
-        {error.status ? `Status ${error.status}` : "Failed to fetch data :("}
+        {error?.status ? `Status ${error.status}` : "Something went wrong :("}
       </h1>
-      <h1>{error.data?.message && error.data.message}</h1>
+      <h1>{error?.data?.message && error.data.message}</h1>
       <button
         onClick={() => {
           navigate("/");

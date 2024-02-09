@@ -9,6 +9,11 @@
   border: 1px solid rgb(181, 181, 181);
   background-color: rgba(255, 255, 255, 0.908);
   font-size: 0.9em;
+  transition: opacity 0.5s ease;
+}
+
+.comment-card.deleted {
+  opacity: 0;
 }
 
 .comment-heading {
@@ -66,4 +71,17 @@
 
 .comment-fail {
   color: red;
+}
+
+.comment-delete {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgba(255, 0, 0, 0.7);
+  cursor: pointer;
+}
+
+.comment-delete:hover {
+  color: white;
+  font-weight: bold;
 }
