@@ -3,6 +3,7 @@ import "../styles/Navbar.css";
 import { useState, useContext, useEffect } from "react";
 import UserContext from "../UserContext";
 import UserProfile from "./UserProfile";
+import TopicDropdown from "./TopicDropdown";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -37,12 +38,12 @@ export default function Navbar() {
         <span></span>
       </div>
       <ul className={menuOpen ? `open` : ""}>
-        <li></li>
         <li>
           <Link onClick={toggleNavbar} to="/">
             Home
           </Link>
         </li>
+        <TopicDropdown />
         <li>
           <Link onClick={toggleNavbar} to="/users">
             Users

@@ -1,10 +1,11 @@
 nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  /* display: flex; */
+  /* justify-content: space-between; */
+  /* align-items: center; */
   padding: 10px;
   font-size: 1.5rem;
   padding: 0 4%;
+  position: relative;
 }
 
 nav .title {
@@ -14,8 +15,8 @@ nav .title {
   text-decoration: none;
   color: rgb(0, 0, 0);
   text-shadow: 2px 1px 0px #ff9408;
-  position: sticky;
-  top: 0;
+  position: absolute;
+  /* top: 0px; */
   font-family: "freight-big-pro";
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -27,11 +28,12 @@ nav .title {
 nav ul {
   display: flex;
   margin-left: 4%;
+  justify-content: end;
 }
 
 nav ul li {
   list-style: none;
-  display: flex;
+  /* display: flex; */
   align-items: center;
 }
 
@@ -77,6 +79,18 @@ nav .menu span {
 }
 
 @media (max-width: 480px) {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    font-size: 1.5rem;
+    padding: 0 4%;
+  }
+  nav .title {
+    position: sticky;
+    top: 0;
+  }
   .navbar {
     transition: background-color 0.3s ease;
   }
@@ -116,4 +130,30 @@ nav .menu span {
   nav .title {
     font-size: 2rem;
   }
+}
+
+.dropdown-menu {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* gap: 5px; */
+  /* align-items: center; */
+}
+.dropdown-parent {
+  /* display: block; */
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-menu button {
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 70px;
+}
+
+.dropdown-menu button:hover {
+  background-color: rgb(40, 25, 25);
+  color: rgb(255, 255, 255);
 }
