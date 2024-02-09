@@ -16,11 +16,9 @@ export default function UsersList() {
     fetchUsers()
       .then((response) => {
         setUsers([...response.users]);
-        console.log(error);
         setIsUsersLoading(false);
       })
       .catch((err) => {
-        console.log(err);
         setIsUsersLoading(false);
         setError(true);
         setErrorInfo({ ...err.response });

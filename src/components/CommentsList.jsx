@@ -59,7 +59,13 @@ export default function CommentsList({ article_id }) {
         </button>
       </form>
       {comments.map((comment) => {
-        return <CommentCard comment={comment} />;
+        return (
+          <CommentCard
+            comment={comment}
+            loggedUser={loggedUser}
+            setComments={setComments}
+          />
+        );
       })}
     </section>
   );
