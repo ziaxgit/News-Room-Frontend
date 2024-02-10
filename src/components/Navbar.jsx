@@ -5,6 +5,7 @@ import UserContext from "../UserContext";
 import UserProfile from "./UserProfile";
 import TopicDropdown from "./TopicDropdown";
 import { IoNewspaperOutline } from "react-icons/io5";
+import { MdOutlineClose } from "react-icons/md";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -37,9 +38,18 @@ export default function Navbar() {
         Zia's News
       </Link>
       <div className="menu" onClick={toggleNavbar}>
-        <span></span>
-        <span></span>
-        <span></span>
+        {!menuOpen && (
+          <>
+            <span></span>
+            <span></span>
+            <span></span>
+          </>
+        )}
+        {menuOpen && (
+          <div className="menu-close">
+            <MdOutlineClose />
+          </div>
+        )}
       </div>
       <ul className={menuOpen ? `open` : ""}>
         <li>
@@ -47,7 +57,7 @@ export default function Navbar() {
             Home
           </Link>
         </li>
-        <TopicDropdown />
+        <TopicDropdown setMenuOpen={setMenuOpen} menuOpen={menuOpen} />
         <li>
           <Link onClick={toggleNavbar} to="/users">
             Users

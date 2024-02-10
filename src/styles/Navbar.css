@@ -63,7 +63,6 @@ nav .menu {
   position: absolute;
   top: 1.5rem;
   right: 0.5rem;
-  /* display: flex; */
   flex-direction: column;
   justify-content: space-between;
   width: 2.25rem;
@@ -76,6 +75,13 @@ nav .menu span {
   background-color: rgba(0, 0, 0, 0.879);
   border-radius: 0.2rem;
   box-shadow: 0 0 4px rgba(255, 255, 255, 0.8); /* Add a white outline */
+}
+
+nav .menu-close {
+  font-size: 50px;
+  position: relative;
+  right: 1rem;
+  top: -0.5rem;
 }
 
 @media (max-width: 900px) {
