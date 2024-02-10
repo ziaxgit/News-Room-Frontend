@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import fetchArticles from "../../utils/fetchArticles";
+import fetchArticleById from "../../utils/fetchArticleById";
 import "../styles/ArticlePage.css";
 import LoadingScreeen from "./LoadingScreen";
 import DisplayError from "./DisplayError";
@@ -23,7 +23,7 @@ export default function ArticlePage() {
   const [errorVoteUpdate, setErrorVoteUpdate] = useState(false);
 
   useEffect(() => {
-    fetchArticles(article_id)
+    fetchArticleById(article_id)
       .then((data) => {
         setArticle({ ...data.article });
         setIsArticleLoading(false);

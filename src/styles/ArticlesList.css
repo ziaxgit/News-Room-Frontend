@@ -60,3 +60,17 @@
   justify-content: space-between;
   flex-wrap: wrap;
 }
+
+.topic-header {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.881);
+  padding: 5px;
+  margin: 0 5%;
+  border-radius: 5px;
+}
+
+.topic-header span {
+  border: 2px solid rgb(245, 99, 20);
+  border-radius: 5px;
+  padding: 0 5px;
+}

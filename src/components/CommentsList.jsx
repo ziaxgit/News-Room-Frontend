@@ -37,7 +37,7 @@ export default function CommentsList({ article_id }) {
     <section className="comments-container">
       <h3 className="comment-heading">Comments</h3>
       <form className="comment-form" action="">
-        <label htmlFor="comment">Write your comment</label>
+        <label htmlFor="comment">Join the discussion</label>
         <textarea
           required
           name="comment"

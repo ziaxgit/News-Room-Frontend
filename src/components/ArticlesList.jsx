@@ -5,14 +5,15 @@ import LoadingScreen from "./LoadingScreen";
 import "../styles/ArticlesList.css";
 import DisplayError from "./DisplayError";
 
-export default function ArticlesList() {
+export default function ArticlesList({ topic }) {
+  console.log(topic);
   const [articles, setArticles] = useState([]);
   const [isLoading, SetIsLoading] = useState(true);
   const [error, setError] = useState(false);
   const [errorInfo, setErrorInfo] = useState({});
 
   useEffect(() => {
-    fetchArticles()
+    fetchArticles(topic)
       .then((data) => {
         setArticles([...data.articles]);
         SetIsLoading(false);
@@ -29,10 +30,18 @@ export default function ArticlesList() {
     return <DisplayError error={errorInfo} />;
   }
   return (
-    <section className="articles-container">
-      {articles.map((article) => {
-        return <ArticleCard article={article} />;
-      })}
-    </section>
+    <>
+      {topic && (
+        <h2 className="topic-header">
+          Showing all <span>{topic}</span>
+          &nbsp;articles
+        </h2>
+      )}
+      <section className="articles-container">
+        {articles.map((article) => {
+          return <ArticleCard article={article} />;
+        })}
+      </section>
+    </>
   );
 }
