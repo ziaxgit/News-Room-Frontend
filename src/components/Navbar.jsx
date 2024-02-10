@@ -4,6 +4,7 @@ import { useState, useContext, useEffect } from "react";
 import UserContext from "../UserContext";
 import UserProfile from "./UserProfile";
 import TopicDropdown from "./TopicDropdown";
+import { IoNewspaperOutline } from "react-icons/io5";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -30,6 +31,9 @@ export default function Navbar() {
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <Link to="/" className="title">
+        <div className="news-icon">
+          <IoNewspaperOutline />
+        </div>
         Zia's News
       </Link>
       <div className="menu" onClick={toggleNavbar}>
