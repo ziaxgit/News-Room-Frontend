@@ -60,6 +60,7 @@ nav ul li a:hover {
 }
 
 nav .menu {
+  display: none;
   position: absolute;
   top: 1.5rem;
   right: 0.5rem;

@@ -24,7 +24,7 @@ export default function TopicDropdown({ menuOpen, setMenuOpen }) {
     e.preventDefault();
   }
 
-  function closeNabar() {
+  function closeNavbar() {
     setMenuOpen(!menuOpen);
   }
   return (
@@ -35,17 +35,38 @@ export default function TopicDropdown({ menuOpen, setMenuOpen }) {
       {isOpen && (
         <div className="dropdown-menu">
           <li>
-            <Link onClick={closeNabar} to={"/articles/coding"}>
+            {/* <Link onClick={closeNavbar} to={"/articles/coding"}> */}
+            <Link
+              onClick={() => {
+                closeNavbar;
+                setIsOpen(!isOpen);
+              }}
+              to={"/articles?topic=coding"}
+            >
               Coding
             </Link>
           </li>
           <li>
-            <Link onClick={closeNabar} to={"/articles/cooking"}>
+            {/* <Link onClick={closeNavbar} to={"/articles/cooking"}> */}
+            <Link
+              onClick={() => {
+                closeNavbar;
+                setIsOpen(!isOpen);
+              }}
+              to={"/articles?topic=cooking"}
+            >
               Cooking
             </Link>
           </li>
           <li>
-            <Link onClick={closeNabar} to={"/articles/football"}>
+            {/* <Link onClick={closeNavbar} to={"/articles/football"}> */}
+            <Link
+              onClick={() => {
+                closeNavbar;
+                setIsOpen(!isOpen);
+              }}
+              to={"/articles?topic=football"}
+            >
               Football
             </Link>
           </li>

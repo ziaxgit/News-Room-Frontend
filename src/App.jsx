@@ -15,18 +15,15 @@ export default function App() {
         <Route path="/" element={<ArticlesList />} />
         <Route path="/articles/:article_id" element={<ArticlePage />} />
         <Route path="/users" element={<UsersList />} />
-        <Route
-          path="/articles/coding"
-          element={<ArticlesList topic={"coding"} />}
-        />
-        <Route
+        <Route path="/articles" element={<ArticlesList topic={"coding"} />} />
+        {/* <Route
           path="/articles/cooking"
           element={<ArticlesList topic={"cooking"} />}
         />
         <Route
           path="/articles/football"
           element={<ArticlesList topic={"football"} />}
-        />
+        /> */}
       </Routes>
     </UserContext.Provider>
   );
