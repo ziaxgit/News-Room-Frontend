@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function TopicDropdown() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,10 +25,6 @@ export default function TopicDropdown() {
     e.preventDefault();
   }
 
-  function navigateToTopic(topic) {
-    navigate(`/articles/${topic}`);
-  }
-
   return (
     <li className="dropdown-parent" ref={dropdownRef}>
       <a onClick={toggleDropdown} href="">
@@ -37,19 +33,13 @@ export default function TopicDropdown() {
       {isOpen && (
         <div className="dropdown-menu">
           <li>
-            <a onClick={() => navigateToTopic("coding")} href="">
-              Coding
-            </a>
+            <Link to={"/articles/coding"}>Coding</Link>
           </li>
           <li>
-            <a onClick={() => navigateToTopic("cooking")} href="">
-              Cooking
-            </a>
+            <Link to={"/articles/cooking"}>Cooking</Link>
           </li>
           <li>
-            <a onClick={() => navigateToTopic("football")} href="">
-              Football
-            </a>
+            <Link to={"/articles/football"}>Football</Link>
           </li>
         </div>
       )}
