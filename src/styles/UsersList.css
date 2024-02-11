@@ -73,3 +73,9 @@
   object-fit: contain;
   border-radius: 50%;
 }
+
+@media (max-width: 900px) {
+  .img-user {
+    margin-top: 0;
+  }
+}

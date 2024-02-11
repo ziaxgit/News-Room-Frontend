@@ -84,3 +84,7 @@
   color: white;
   font-weight: bold;
 }
+
+.comments-container {
+  width: 100%;
+}

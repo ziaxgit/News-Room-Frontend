@@ -137,9 +137,6 @@ nav .menu-close {
   .dropdown-parent {
     gap: 0.6rem;
   }
-
-  .img-user {
-  }
 }
 
 @media (max-width: 400px) {

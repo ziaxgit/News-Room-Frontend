@@ -50,14 +50,23 @@ export default function CommentCard({
           <p>{comment.body}</p>
         </div>
 
-        {comment.votes > 0 ? (
+        {comment.votes > 0 && (
           <p className="comment-likes">
             <TiHeartFullOutline color="red" size={20} />
             {comment.votes}
           </p>
-        ) : (
+        )}
+
+        {comment.votes === 0 && (
           <p className="comment-likes">
-            <BsHeartbreakFill color="black" size={16} /> {comment.votes}
+            <TiHeartFullOutline color="black" size={20} />
+            {comment.votes}
+          </p>
+        )}
+
+        {comment.votes < 0 && (
+          <p className="comment-likes">
+            <BsHeartbreakFill color="red" size={16} /> {comment.votes}
           </p>
         )}
 
