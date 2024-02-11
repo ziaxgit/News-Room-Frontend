@@ -6,6 +6,8 @@ import UsersList from "./components/UsersList";
 import { useState } from "react";
 import UserContext from "./UserContext";
 import NewArticle from "./components/NewArticle";
+import DisplayError from "./components/DisplayError";
+import InvalidPath from "./components/InvalidPath";
 
 export default function App() {
   const [loggedUser, setLoggedUser] = useState("happyamy2016");
@@ -18,6 +20,7 @@ export default function App() {
         <Route path="/users" element={<UsersList />} />
         <Route path="/articles" element={<ArticlesList />} />
         <Route path="/post-new-article" element={<NewArticle />} />
+        <Route path="*" element={<InvalidPath />} />
         {/* <Route
           path="/articles/cooking"
           element={<ArticlesList topic={"cooking"} />}
