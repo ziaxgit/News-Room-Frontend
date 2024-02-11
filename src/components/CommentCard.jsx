@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import deleteComment from "../../utils/deleteComment";
 import DisplayError from "./DisplayError";
-export default function CommentCard({ comment, loggedUser }) {
+import { TiHeartFullOutline } from "react-icons/ti";
+import { BsHeartbreakFill } from "react-icons/bs";
+
+export default function CommentCard({
+  comment,
+  loggedUser,
+  setIsDelete,
+  isDelete,
+  setCommentPosted,
+}) {
   const originalDate = new Date(comment.created_at);
   const [error, setError] = useState(false);
-  const [commentDelete, setCommentDelete] = useState(false);
 
   const options = {
     year: "numeric",
@@ -19,9 +27,12 @@ export default function CommentCard({ comment, loggedUser }) {
   const formattedDate = originalDate.toLocaleDateString("en-GB", options);
 
   function handleDeleteComment(comment_id) {
+    setCommentPosted(false);
     deleteComment(comment_id)
-      .then(() => setCommentDelete(true))
-      .catch((err) => {
+      .then(() => {
+        setIsDelete(!isDelete);
+      })
+      .catch(() => {
         setError(true);
       });
   }
@@ -31,9 +42,6 @@ export default function CommentCard({ comment, loggedUser }) {
   }
   return (
     <>
-      {commentDelete && (
-        <p className="comment-card">Comment deleted successfully</p>
-      )}
       <div className="comment-card">
         <div>
           <p className="comment-author">
@@ -41,7 +49,18 @@ export default function CommentCard({ comment, loggedUser }) {
           </p>
           <p>{comment.body}</p>
         </div>
-        <p className="comment-likes">{comment.votes} likes</p>
+
+        {comment.votes >= 0 ? (
+          <p className="comment-likes">
+            <TiHeartFullOutline color="red" size={20} />
+            {comment.votes}
+          </p>
+        ) : (
+          <p className="comment-likes">
+            <BsHeartbreakFill color="black" size={16} /> {comment.votes}
+          </p>
+        )}
+
         {comment.author === loggedUser && (
           <button
             onClick={() => handleDeleteComment(comment.comment_id)}

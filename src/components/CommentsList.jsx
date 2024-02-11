@@ -8,26 +8,36 @@ import UserContext from "../UserContext";
 export default function CommentsList({ article_id }) {
   const [comments, setComments] = useState([]);
   const [commentText, setCommentText] = useState("");
-  const [commentPosted, setCommentPosted] = useState(null);
+  const [commentPosted, setCommentPosted] = useState(false);
   const { loggedUser } = useContext(UserContext);
-  const [commentError, setCommentError] = useState(null);
+  const [isCommentPosting, setIsCommentPosting] = useState(false);
+  const [commentError, setCommentError] = useState(false);
+
+  const [isDelete, setIsDelete] = useState(false);
 
   useEffect(() => {
     fetchComments(article_id).then((data) => {
       setComments([...data.comments]);
     });
-  }, [comments]);
+    console.log({ isCommentPosting });
+    console.log({ isDelete });
+  }, [isCommentPosting, isDelete]);
 
   function handleCommentSubmit(e) {
     if (commentText && /^\s*$/.test(commentText) === false) {
       e.preventDefault();
+      setIsCommentPosting(true);
       postArticleComment(
         { username: loggedUser, body: commentText },
         article_id
       )
-        .then(() => setCommentPosted(true))
+        .then(() => {
+          setCommentPosted(true);
+          setIsCommentPosting(false);
+        })
         .catch(() => {
           setCommentPosted(false);
+          setCommentError(true);
         });
     }
     setCommentText("");
@@ -48,10 +58,11 @@ export default function CommentsList({ article_id }) {
             setCommentText(e.target.value);
           }}
         ></textarea>
-        {commentPosted && (
+        {isCommentPosting && "Posting your comment..."}
+        {commentPosted && !isCommentPosting && (
           <p className="comment-success">Comment posted successfully :)</p>
         )}
-        {commentPosted === false && (
+        {commentError && (
           <p className="comment-fail">Failed to post comment :(</p>
         )}
         <button onClick={handleCommentSubmit} type="submit">
@@ -63,7 +74,9 @@ export default function CommentsList({ article_id }) {
           <CommentCard
             comment={comment}
             loggedUser={loggedUser}
-            setComments={setComments}
+            setIsDelete={setIsDelete}
+            isDelete={isDelete}
+            setCommentPosted={setCommentPosted}
           />
         );
       })}

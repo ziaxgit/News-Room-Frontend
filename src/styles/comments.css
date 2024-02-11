@@ -26,6 +26,10 @@
 .comment-likes {
   text-align: end;
   font-weight: bold;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 3px;
 }
 
 .comment-form {

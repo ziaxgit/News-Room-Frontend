@@ -4,6 +4,7 @@ import { MdOutlineInsertComment } from "react-icons/md";
 import fetchUsers from "../../utils/fetchUsers";
 import { useEffect, useState } from "react";
 import { MdDateRange } from "react-icons/md";
+import { BsHeartbreakFill } from "react-icons/bs";
 
 export default function ArticleCard({ article }) {
   const date = new Date(article.created_at);
@@ -37,10 +38,18 @@ export default function ArticleCard({ article }) {
         </p>
       </div>
       <div className="votes-comment-count">
-        <p className="article-card-likes">
-          <TiHeartFullOutline color="red" size={30} />
-          {article.votes}
-        </p>
+        {article.votes > 0 ? (
+          <p className="article-card-likes">
+            <TiHeartFullOutline color="red" size={30} />
+            {article.votes}
+          </p>
+        ) : (
+          <p className="article-card-likes">
+            <BsHeartbreakFill color="black" size={25} />
+            {article.votes}
+          </p>
+        )}
+
         <p className="comment-icon-text">
           <MdOutlineInsertComment size={25} /> {article.comment_count} comments
         </p>
