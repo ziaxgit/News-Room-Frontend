@@ -19,8 +19,6 @@ export default function CommentsList({ article_id }) {
     fetchComments(article_id).then((data) => {
       setComments([...data.comments]);
     });
-    console.log({ isCommentPosting });
-    console.log({ isDelete });
   }, [isCommentPosting, isDelete]);
 
   function handleCommentSubmit(e) {
