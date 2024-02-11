@@ -78,6 +78,7 @@
   border: none;
   background-color: rgba(255, 0, 0, 0.7);
   cursor: pointer;
+  color: rgb(0, 0, 0);
 }
 
 .comment-delete:hover {
