@@ -6,6 +6,7 @@ nav {
   font-size: 1.5rem;
   padding: 0 4%;
   position: relative;
+  z-index: 99;
 }
 
 nav .title {
@@ -15,7 +16,7 @@ nav .title {
   font-weight: bold;
   text-decoration: none;
   color: rgb(0, 0, 0);
-  text-shadow: 2px 1px 0px #ff9408;
+  text-shadow: 2px 1px 0px rgb(255, 123, 0);
   position: absolute;
   font-family: "freight-big-pro";
   letter-spacing: 0.5px;
@@ -23,6 +24,8 @@ nav .title {
   border: 2px solid rgb(0, 0, 0);
   padding: 5px;
   background-color: rgba(255, 255, 255, 0.658);
+  -webkit-text-stroke: 1px #d6d6d6;
+  letter-spacing: 1.25px;
 }
 
 nav ul {
@@ -81,7 +84,7 @@ nav .menu span {
 nav .menu-close {
   font-size: 50px;
   position: relative;
-  right: 1rem;
+  right: 0.7rem;
   top: -0.5rem;
 }
 
@@ -152,7 +155,7 @@ nav .menu-close {
 }
 
 .dropdown-menu {
-  background-color: rgba(185, 174, 174, 0.61);
+  background-color: rgba(109, 104, 104, 0.32);
   border-radius: 5px;
   margin-top: -0.5em;
   margin-bottom: 0.5em;

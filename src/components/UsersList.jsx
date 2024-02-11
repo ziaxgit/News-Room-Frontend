@@ -35,7 +35,7 @@ export default function UsersList() {
     <>
       <h1 className="users-header">Users</h1>
       <p className="users-header">
-        <strong>Click on a user to log in as them</strong>{" "}
+        <strong>Click on a user to log in</strong>{" "}
       </p>
       <section className="userlist-container">
         {users.map((user) => {

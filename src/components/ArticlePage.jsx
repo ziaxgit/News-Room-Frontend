@@ -8,6 +8,8 @@ import DisplayError from "./DisplayError";
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 import patchArticleVote from "../../utils/patchArticleVote";
 import CommentsList from "./CommentsList";
+import { TiHeartFullOutline } from "react-icons/ti";
+import { MdOutlineInsertComment } from "react-icons/md";
 
 export default function ArticlePage() {
   const { article_id } = useParams();
@@ -88,15 +90,21 @@ export default function ArticlePage() {
         <img src={article.article_img_url} alt={article.title} />
         <p className="article-body">{article.body}</p>
         <div className="votes-comment-count">
-          <p>{tempVotes} likes</p>
-          <p>{article.comment_count} comments</p>
+          <p className="article-card-likes">
+            <TiHeartFullOutline color="red" size={25} />
+            {tempVotes}
+          </p>
+          <p className="comment-icon-text">
+            <MdOutlineInsertComment size={25} />
+            {article.comment_count}
+          </p>
         </div>
         <div className="like-buttons">
           <button
             onClick={incrementVote}
             id={likeClick && tempVotes !== originalVotes ? "btn-clicked" : null}
           >
-            <AiOutlineLike size={25} />
+            <AiOutlineLike color="green" size={25} />
           </button>
           <button
             onClick={decrementVote}
@@ -104,7 +112,7 @@ export default function ArticlePage() {
               dislikeClick && tempVotes !== originalVotes ? "btn-clicked" : null
             }
           >
-            <AiOutlineDislike size={25} />
+            <AiOutlineDislike color="red" size={25} />
           </button>
           {likeClick && tempVotes !== originalVotes ? (
             <p>You liked this!</p>

@@ -61,9 +61,15 @@
   flex-wrap: wrap;
 }
 
+.article-date {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
 .topic-header {
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.881);
+  background-color: rgba(255, 255, 255, 0.579);
   padding: 10px;
   margin: 0 5%;
   border-radius: 5px;
@@ -72,7 +78,10 @@
 .topic-header span {
   border: 2px solid rgb(245, 99, 20);
   border-radius: 5px;
-  padding: 0 5px;
+  padding: 5px 5px;
+  background-color: black;
+  color: white;
+  line-height: 2em;
 }
 
 .about-section {
@@ -83,4 +92,61 @@
   margin: 0 5%;
   border-radius: 5px;
   font-size: 1.2em;
+}
+
+.query-container {
+  margin: 1rem 5% 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.filter-dropdown {
+  width: 10em;
+}
+
+.sort-by {
+  width: 210px;
+  font-size: 15px;
+}
+
+.order-by {
+  width: 230px;
+  font-size: 15px;
+}
+
+.query-container button {
+  padding: 5px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  background-color: rgba(80, 77, 77, 0.785);
+  color: white;
+}
+
+.query-container button:hover {
+  background-color: black;
+  font-weight: bold;
+  color: white;
+}
+
+.article-card-likes {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.article-card-author-pic {
+  width: 30px;
+  /* height: 50px; */
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.article-card-author-pic img {
+  width: 50px;
+  height: 40px;
+  object-fit: contain;
 }
