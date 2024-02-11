@@ -176,3 +176,29 @@
 .post-article-button:hover {
   background-color: rgb(231, 108, 63);
 }
+
+.post-article-header {
+  text-align: center;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+}
+
+.form-section {
+  display: flex;
+  width: 50%;
+  margin: 0 25%;
+  flex-wrap: wrap;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+@media (max-width: 500px) {
+  .form-section {
+    width: 80%;
+    margin: 0 10%;
+  }
+}
+
+.form-section button {
+  margin-top: 5px;
+}

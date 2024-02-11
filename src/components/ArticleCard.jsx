@@ -38,14 +38,22 @@ export default function ArticleCard({ article }) {
         </p>
       </div>
       <div className="votes-comment-count">
-        {article.votes > 0 ? (
+        {article.votes === 0 && (
+          <p className="article-card-likes">
+            <TiHeartFullOutline color="black" size={30} />
+            {article.votes}
+          </p>
+        )}
+        {article.votes > 0 && (
           <p className="article-card-likes">
             <TiHeartFullOutline color="red" size={30} />
             {article.votes}
           </p>
-        ) : (
+        )}
+
+        {article.votes < 0 && (
           <p className="article-card-likes">
-            <BsHeartbreakFill color="black" size={25} />
+            <BsHeartbreakFill color="red" size={25} />
             {article.votes}
           </p>
         )}

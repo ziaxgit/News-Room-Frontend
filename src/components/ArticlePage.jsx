@@ -10,6 +10,7 @@ import patchArticleVote from "../../utils/patchArticleVote";
 import CommentsList from "./CommentsList";
 import { TiHeartFullOutline } from "react-icons/ti";
 import { MdOutlineInsertComment } from "react-icons/md";
+import { BsHeartbreakFill } from "react-icons/bs";
 
 export default function ArticlePage() {
   const { article_id } = useParams();
@@ -90,10 +91,25 @@ export default function ArticlePage() {
         <img src={article.article_img_url} alt={article.title} />
         <p className="article-body">{article.body}</p>
         <div className="votes-comment-count">
-          <p className="article-card-likes">
-            <TiHeartFullOutline color="red" size={25} />
-            {tempVotes}
-          </p>
+          {tempVotes === 0 && (
+            <p className="article-card-likes">
+              <TiHeartFullOutline color="black" size={25} />
+              {tempVotes}
+            </p>
+          )}
+          {tempVotes > 0 && (
+            <p className="article-card-likes">
+              <TiHeartFullOutline color="red" size={25} />
+              {tempVotes}
+            </p>
+          )}
+          {tempVotes < 0 && (
+            <p className="article-card-likes">
+              <BsHeartbreakFill color="red" size={20} />
+              {tempVotes}
+            </p>
+          )}
+
           <p className="comment-icon-text">
             <MdOutlineInsertComment size={25} />
             {article.comment_count}

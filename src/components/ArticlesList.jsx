@@ -9,8 +9,10 @@ import { useLocation } from "react-router-dom";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import { useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function ArticlesList() {
+  const navigate = useNavigate();
   const [articles, setArticles] = useState([]);
   const [isLoading, SetIsLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -95,7 +97,14 @@ export default function ArticlesList() {
             Reset
           </button>
         </div>
-        <button className="post-article-button"> Post Article</button>
+        <button
+          onClick={() => {
+            navigate("/post-new-article");
+          }}
+          className="post-article-button"
+        >
+          Post Article
+        </button>
       </div>
       <section className="articles-container">
         {articles.map((article) => {

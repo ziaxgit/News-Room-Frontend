@@ -89,3 +89,16 @@
   align-items: center;
   gap: 5px;
 }
+
+.article-posted {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.article-posted button {
+  padding: 5px;
+  cursor: pointer;
+}

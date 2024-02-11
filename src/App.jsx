@@ -5,6 +5,7 @@ import ArticlePage from "./components/ArticlePage";
 import UsersList from "./components/UsersList";
 import { useState } from "react";
 import UserContext from "./UserContext";
+import NewArticle from "./components/NewArticle";
 
 export default function App() {
   const [loggedUser, setLoggedUser] = useState("happyamy2016");
@@ -15,7 +16,8 @@ export default function App() {
         <Route path="/" element={<ArticlesList />} />
         <Route path="/articles/:article_id" element={<ArticlePage />} />
         <Route path="/users" element={<UsersList />} />
-        <Route path="/articles" element={<ArticlesList topic={"coding"} />} />
+        <Route path="/articles" element={<ArticlesList />} />
+        <Route path="/post-new-article" element={<NewArticle />} />
         {/* <Route
           path="/articles/cooking"
           element={<ArticlesList topic={"cooking"} />}
