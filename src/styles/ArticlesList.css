@@ -98,7 +98,7 @@
   margin: 1rem 5% 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
+  justify-content: space-between;
 }
 
 .filter-dropdown {
@@ -115,16 +115,18 @@
   font-size: 15px;
 }
 
-.query-container button {
+.query-container .reset-button {
   padding: 5px 20px;
   cursor: pointer;
+  font-size: 15px;
+  height: 34px;
   border: none;
   border-radius: 2px;
   background-color: rgba(80, 77, 77, 0.785);
   color: white;
 }
 
-.query-container button:hover {
+.reset-button:hover {
   background-color: black;
   font-weight: bold;
   color: white;
@@ -138,7 +140,7 @@
 }
 
 .article-card-author-pic {
-  width: 30px;
+  /* width: 30px; */
   /* height: 50px; */
   display: flex;
   align-items: center;
@@ -149,4 +151,28 @@
   width: 50px;
   height: 40px;
   object-fit: contain;
+}
+
+.dropdown-container {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.post-article-button {
+  font-size: 1em;
+  background-color: green;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid;
+  margin-top: 5px;
+}
+
+.post-article-button:hover {
+  background-color: rgb(231, 108, 63);
 }

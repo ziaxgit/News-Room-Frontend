@@ -64,37 +64,38 @@ export default function ArticlesList() {
       )}
       {pathname === "/" && <About />}
       <div className="query-container">
-        <Dropdown
-          onChange={(e) => {
-            setSortBy(e.value);
-          }}
-          className="sort-by"
-          options={sortByOptions}
-          value={isReset ? "Created at (default)" : "Sort by"}
-          placeholder="sort by"
-        />
+        <div className="dropdown-container">
+          <Dropdown
+            onChange={(e) => {
+              setSortBy(e.value);
+            }}
+            className="sort-by"
+            options={sortByOptions}
+            value={isReset ? "Created at (default)" : "Sort by"}
+            placeholder="sort by"
+          />
 
-        <Dropdown
-          onChange={(e) => {
-            setOrderBy(e.value);
-          }}
-          className="order-by"
-          options={orderByOptions}
-          value={isReset ? "Descending (default)" : "Order by"}
-          placeholder="order by"
-        />
-        <button
-          style={{
-            "font-size": "15px",
-          }}
-          onClick={() => {
-            setIsReset(!isReset);
-            setSortBy("created_at");
-            setOrderBy("desc");
-          }}
-        >
-          Reset
-        </button>
+          <Dropdown
+            onChange={(e) => {
+              setOrderBy(e.value);
+            }}
+            className="order-by"
+            options={orderByOptions}
+            value={isReset ? "Descending (default)" : "Order by"}
+            placeholder="order by"
+          />
+          <button
+            className="reset-button"
+            onClick={() => {
+              setIsReset(!isReset);
+              setSortBy("created_at");
+              setOrderBy("desc");
+            }}
+          >
+            Reset
+          </button>
+        </div>
+        <button className="post-article-button"> Post Article</button>
       </div>
       <section className="articles-container">
         {articles.map((article) => {
