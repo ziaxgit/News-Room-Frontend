@@ -1,8 +1,10 @@
-# News Room
+# [News Room](https://zias-news.netlify.app/)
 
-Welcome to the News Room! A fully responsive news website built using React.js by utilizing my back-end endpoints. This web application features a homepage with a list of articles that can be filtered by topics and sorted by different factors. Contains individual article pages for users to read the content and allows voting functionality. Users can participate in discussion of an article by posting or deleting comments.
+Welcome to the News Room! A fully responsive news website built using React.js, styled with CSS and Material UI. This web application features a homepage with a list of articles that can be filtered by topics and sorted by different factors. Contains individual article pages for users to read the content and allows voting functionality. Users can participate in discussion of an article by posting or deleting comments. 
 
-[Live demo](https://zias-news.netlify.app/).
+It consumes data from the [News Room API](https://github.com/ziaxgit/News-Room-API), which is hosted separately on the backend.
+
+## [Click here to view live demo](https://zias-news.netlify.app/)
 
 This project aims to demonstrate some of the skills learnt in front end part of the Northcoders bootcamp, mostly dedicated to React subjects including:
 
@@ -20,5 +22,60 @@ This project aims to demonstrate some of the skills learnt in front end part of 
 3. You can also post your comments on an article by navigating to the article details page and using the comment form at the bottom.
 4. To explore different topics, you can use the navigation bar at the top, which lists all available topics. Clicking on a topic will filter the articles based on the selected category.
 
+**Errors**
 
+Bad route errors result in the relevant 400/404 page.
 
+Bad requests include:
+
+-   Page route does not exist
+-   Topic does not exist
+-   Article Id does not exist
+
+API errors result in the API error status code and message being displayed to the user.
+
+## Running the Project Locally
+
+First ensure you have the following installed:
+
+- Node.js (Minimum version required: 16.0.0)
+
+You can check your Node version by running the following command in your terminal:
+
+```bash
+node --version
+```
+
+To run the News Room on your local machine, follow these steps:
+
+1. Clone this repository to your local machine using the following command:
+
+```bash
+git clone https://github.com/ziaxgit/News-Room-Frontend.git
+```
+
+2. Navigate to the project directory:
+
+```bash
+cd News-Room-Frontend
+```
+
+3. Install the required dependencies:
+
+```bash
+npm install
+```
+
+4. Start the development server:
+
+```bash
+npm start
+```
+
+5. The app should now be running on your local server at `http://localhost:3000`.
+
+Now, you can play around with the app locally and test its features.
+
+Please note that the app will make API requests to the backend, so make sure the backend server is also running and accessible.
+
+If you encounter any issues or have any questions, feel free to raise an issue on the GitHub repository. Happy coding!
