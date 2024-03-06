@@ -35,7 +35,7 @@ export default function Navbar() {
         <div className="news-icon">
           <IoNewspaperOutline />
         </div>
-        &nbsp;Zia's News
+        &nbsp;News Room
       </Link>
       <div className="menu" onClick={toggleNavbar}>
         {!menuOpen && (
