@@ -1,3 +1,3 @@
-# Zia's News
+# News Room
 
-Welcome to Zia's News!
+Welcome to the News Room!
