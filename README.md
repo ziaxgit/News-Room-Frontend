@@ -6,6 +6,13 @@ It consumes data from the [News Room API](https://github.com/ziaxgit/News-Room-A
 
 ## [Click here to view live demo](https://zias-news.netlify.app/)
 
+### Screenshots
+![image](https://github.com/ziaxgit/News-Room-Frontend/assets/112583896/28a92733-432f-4377-929a-3e16218b0ea2)
+![Screenshot from 2024-05-11 20-26-14](https://github.com/ziaxgit/News-Room-Frontend/assets/112583896/b460fa41-a440-4e11-9c59-8a040d3aad61)
+![Screenshot from 2024-05-11 20-29-18](https://github.com/ziaxgit/News-Room-Frontend/assets/112583896/a2873ef9-0d99-49c9-8d69-2c72ec0c1645)
+![Screenshot from 2024-05-11 20-26-32](https://github.com/ziaxgit/News-Room-Frontend/assets/112583896/6e9afcd2-2992-4476-9fda-e6aff2d8cf96)
+![Screenshot from 2024-05-11 20-26-49](https://github.com/ziaxgit/News-Room-Frontend/assets/112583896/5281aabc-487a-4aa8-bd44-81c29dc23212)
+
 This project aims to demonstrate some of the skills learnt in front end part of the Northcoders bootcamp, mostly dedicated to React subjects including:
 
 -   React Virtual DOM
